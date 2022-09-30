@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class NewBehaviourScript : MonoBehaviour
+using UnityEngine.UI;
+public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     public float move;
     private Rigidbody2D player_Rgb;
     public float jumpPower;
     bool isJumping = false;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+    public Slider slider;
 
     // Start is called before the first frame update
     void Start()
     {
         player_Rgb = this.gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        healthBar.SetHealth(maxHealth);
+
     }
 
     // Update is called once per frame
@@ -30,6 +40,11 @@ public class NewBehaviourScript : MonoBehaviour
         animator.SetBool("IsJumping", false);
         {
             animator.SetBool("IsJumping", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Attack();
         }
     }
 
@@ -59,5 +74,30 @@ public class NewBehaviourScript : MonoBehaviour
         {
             isJumping = false;
         }
+    }
+    private void Attack()
+    {
+        // Play an attack animation
+        animator.SetTrigger("Attack");
+
+        // Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        // Damage them
+        foreach (Collider2D hit in hitEnemies)
+        {
+            Debug.Log("We hit " + hit.name);
+        }
+    }
+
+    private void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+    }
+
+    private void SetHealth(int health)
+    {
+        slider.value = health;
     }
 }

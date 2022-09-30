@@ -136,9 +136,6 @@ GameObject:
   - component: {fileID: 38745443}
   - component: {fileID: 38745444}
   - component: {fileID: 38745442}
-  - component: {fileID: 38745445}
-  - component: {fileID: 38745447}
-  - component: {fileID: 38745446}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -197,8 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa280306fb6bbe14d86c35df94ab73d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 4
+  move: 5
   jumpPower: 4000
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!61 &38745443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,52 +252,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &38745445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38745439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dcfa6dd8302bb84395498d66b2657b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 38745441}
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &38745446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38745439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989ad61d1c6e51848bc406ace3b2119e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}
---- !u!114 &38745447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38745439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027b67dc32d9ed842a213ffa76a981cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 0}
 --- !u!1 &54705637
 GameObject:
   m_ObjectHideFlags: 0
