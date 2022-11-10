@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayers;
     public int maxHealth = 100;
     public int currentHealth;
-    public HealthBar healthBar;
     public Slider slider;
 
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class PlayerController : MonoBehaviour
         player_Rgb = this.gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
-        healthBar.SetHealth(maxHealth);
+        
 
     }
 
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             animator.SetTrigger("Launching");
-            player_Rgb.AddForce(new Vector2((float).5, jumpPower));
+            player_Rgb.AddForce(new Vector2((float).5, jumpPower), ForceMode2D.Impulse);
             isJumping = true;
         }
         animator.SetBool("IsJumping", false);

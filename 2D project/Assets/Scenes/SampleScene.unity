@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 5
-  jumpPower: 4000
+  jumpPower: 200
   attackPoint: {fileID: 0}
   attackRange: 0.5
   enemyLayers:
@@ -203,7 +203,6 @@ MonoBehaviour:
     m_Bits: 0
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
   slider: {fileID: 0}
 --- !u!61 &38745443
 BoxCollider2D:
@@ -246,7 +245,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 40
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1084,7 +1083,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949800066}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
