@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             animator.SetTrigger("Launching");
+            animator.SetBool("Land", false);
             player_Rgb.AddForce(new Vector2((float).5, jumpPower), ForceMode2D.Impulse);
             isJumping = true;
         }
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
         }
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             isJumping = false;
+            animator.SetBool("Land", true);
         }
     }
     private void Attack()
